@@ -2,7 +2,8 @@
 layout: post
 title: "Hello World!!"
 date: 2016-01-28 23:29:00 +0700
-categories: general
+comments: true
+disqus_identifier: cc8b671a-c83a-11e5-b833-080027047769
 ---
 
 Hello World!! Okay, I'd like to see if this, $$ \LaTeX $$ works.
