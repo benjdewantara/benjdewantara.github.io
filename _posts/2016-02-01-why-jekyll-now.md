@@ -16,7 +16,7 @@ I may stick a little bit longer with Wordpress, but I find myself more comfortab
 
 ![Text vs Visual?][text-vs-visual]
 
-I try to pay careful attention to details like how many `SPACE` and `ENTER` characters I have used. Just like writing with Microsoft Word, I make sure that `show paragraph symbols` button is clicked.
+I try to pay careful attention to details like how many `SPACE` and `ENTER` characters I have used. Just like writing with Microsoft Word, I make sure that ***show paragraph symbols*** button is clicked.
 
 ![When writing with Microsoft Word][writing-with-ms-word]
 
