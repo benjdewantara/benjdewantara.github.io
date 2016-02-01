@@ -6,12 +6,13 @@ comments: true
 disqus_identifier: 76f2e370-c8fb-11e5-b76f-080027047769
 ---
 
-<ol>
-    <li>Bachelor thesis</li>
-    <li>Three classes</li>
-    <li>Introduction to Computer Science and Programming Using Python on [edX.org][edx-org]</li>
-    <li>One particular project my friend [Rafael][rafael-twitter] and I are planning on</li>
-</ol>
+1. Bachelor thesis
+2. Three classes
+3. Introduction to Computer Science and Programming Using Python on [edX.org][edx-org]
+4. One particular project my friend [Rafael][rafael-twitter] and I are planning on
+
+
+
 
 [edx-org]: https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-6
 [rafael-twitter]: https://twitter.com/purba_rafael
