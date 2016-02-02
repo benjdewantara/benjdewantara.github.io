@@ -36,7 +36,7 @@ Now this,
 
 I'm thinking of posting a few of my thesis materials here
 =========================================================
-This explains why I need that beautiful $$ \LaTeX $$ (and code highlighting feature).
+This further explains why I need that beautiful $$ \LaTeX $$ (and code highlighting feature).
 
 Ultimately, I get to hack my way through all this
 =================================================
