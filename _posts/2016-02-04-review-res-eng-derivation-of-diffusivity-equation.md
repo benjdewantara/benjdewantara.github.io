@@ -11,9 +11,10 @@ disqus_identifier: 5012a7ae-cb0d-11e5-8a5a-080027047769
 
 Since the flow of fluid in a *porous medium* (i.e. a *reservoir*) mostly follow a radial flow, we will put our mathematical abstraction using a [cylindrical coordinate system](cylindrical-coord) $$ (r, \theta, z) $$. However, it is possible as well for the flow to happen in $$ z $$ direction.
 
-We would like to observe the mass in a fixed point in **`space`**, say at $$ r=r_a $$, $$ \theta=\theta_a$$, and $$ z=z_a $$ or at $$ (r_a, \theta_a, z_a) $$. Consider the following image,
+We would like to observe the mass in a fixed point in **`space`**, say at $$ r=r_a $$, $$ \theta=\theta_a$$, and $$ z=z_a $$ or at $$ (r_a, \theta_a, z_a) $$. Consider the following image (**taken from *Wikipedia***),
 
 ![Cylindrical coordinate surfaces][img-cylindrical-coord]
+
 It is clear that a point in a cylindrical space is the intersection of the three colored surfaces.
 
 Now, consider its [control volume](control-volume) whose volume is $$ V_b = r_a \Delta{r_a} \Delta{\theta_a} \Delta{z_a} $$. This control volume contains the point $$ (r_a, \theta_a, z_a) $$ (i.e. $$ r_{a} $$ lies between $$ r_{a} - \frac{\Delta{r_a}}{2} $$ and $$ r_{a} + \frac{\Delta{r_a}}{2} $$, and the same also applies to both $$ \theta_a $$ and $$ z_a $$).
