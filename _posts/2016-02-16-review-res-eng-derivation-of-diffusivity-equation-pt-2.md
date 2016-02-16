@@ -13,7 +13,9 @@ $$ \frac{\partial{ \left( \rho\phi \right) }}{\partial{t}} = \frac{-1}{r} \frac{
 
 Consider Darcy's Law,
 
-$$ u_s = -\frac{k}{\mu} \left( \frac{\partial P}{\partial s} - \rho g \frac{dz}{ds} \right) $$
+$$ u_s = -\frac{k}{\mu} \left( \frac{\partial P}{\partial s} - \rho g \frac{\partial z}{\partial s} \right) $$
+
+Keep in mind that Darcy's Law only applies to laminar (or Darcy) flow.
 
 Translating that form in $$ r $$ direction gives,
 
@@ -23,6 +25,12 @@ Introduce Darcy's equation into continuity equation,
 
 $$ \frac{\partial{ \left( \rho\phi \right) }}{\partial{t}} = \frac{-1}{r} \frac{\partial}{\partial r}\left( r \rho \frac{k}{\mu} \frac{\partial P}{\partial r} \right) $$
 
+Now, from this point on, we're gonna introduce more assumptions in order to further derive this equation. Notice the right-hand side of the equation, we have variables $$ \rho $$, $$ k $$, $$ \mu $$ that are obviously $$ f(P) $$ (a function of pressure). Pressure itself is $$ f(r) $$ (a function of space, which in this case only happens in $$ r $$).
+
+We need to assume that the porous medium (i.e. the rock) has constant permeability and compressibility (Yes! [Rock can be compressible](compaction-drive-res)!).
+
+
+
 
 
 
@@ -31,12 +39,7 @@ $$ \frac{\partial{ \left( \rho\phi \right) }}{\partial{t}} = \frac{-1}{r} \frac{
 {% comment %} This is where you put all the link/image/media/file pointers {% endcomment %}
 
 [previous-post]: {% post_url 2016-02-04-review-res-eng-derivation-of-diffusivity-equation-pt-1 %}
-[diffusivity-eq]: http://petrowiki.org/Reservoir_inflow_performance
-[continuity-eq]: https://en.wikipedia.org/wiki/Continuity_equation#Fluid_dynamics
-[darcy-eq]: https://en.wikipedia.org/wiki/Darcy%27s_law#Darcy.27s_Law_in_Petroleum_Engineering
-[cylindrical-coord]: https://en.wikipedia.org/wiki/Cylindrical_coordinate_system
-[control-volume]: https://en.wikipedia.org/wiki/Control_volume
-[finite-difference]: https://en.wikipedia.org/wiki/Finite_difference
 
+[compaction-drive-res]: https://petrowiki.org/Compaction_drive_reservoirs
 
 [img-cylindrical-coord]: {{ site.url }}/assets/Cylindrical_coordinate_surfaces.gif
