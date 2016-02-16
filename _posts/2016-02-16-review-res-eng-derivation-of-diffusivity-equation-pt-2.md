@@ -47,8 +47,10 @@ Recall the definition of compressibility of both fluid and rock (yes, [rock can 
 $$
 \begin{align}
 
-c_f &= \frac{1}{\rho_f} \frac{d\rho_f}{dP} \\
-\rho_f c_f &= \frac{d\rho_f}{dP}
+c_f &= \frac{1}{\rho} \frac{d\rho}{dP} &
+c_r &= \frac{1}{\phi} \frac{d\phi}{dP}\\
+\rho c_f &= \frac{d\rho}{dP} &
+\phi c_r &= \frac{d\phi}{dP}
 
 \end{align}
 $$
