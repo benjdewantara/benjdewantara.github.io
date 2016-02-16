@@ -87,6 +87,10 @@ $$
 \end{align}
 $$
 
+We also assume that fluid has small, constant compressibility. Furthermore, pressure-gradient-squared times compressibility can be neglected $$ c_f \left( \frac{\partial P}{\partial r} \right)^{2} $$.
+
+$$ \frac{\mu\phi c_T}{k} \frac{\partial P}{\partial t} = \frac{-1}{r} \left[ \frac{\partial r}{\partial r} \frac{\partial P}{\partial r} + r \frac{\partial^2 P}{\partial r^2} \right] \\ $$
+
 
 
 
