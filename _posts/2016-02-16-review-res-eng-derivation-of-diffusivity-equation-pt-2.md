@@ -29,22 +29,40 @@ Now, from this point on, we're gonna introduce more assumptions in order to furt
 
 We need to assume that the porous medium (i.e. the rock) has constant permeability and fluid's viscosity stays constant.
 
-{% comment %}
- (yes, [rock can be compressible](compaction-drive-res)!).
-{% endcomment %}
-
-
 $$ \frac{\mu}{k} \frac{\partial(\rho\phi)}{\partial{t}} = \frac{-1}{r} \frac{\partial}{\partial r} \left( r \rho \frac{\partial P}{\partial r} \right) $$
 
 Evaluate the left-hand side,
 
 $$
 \begin{align}
+
 \frac{\partial (\rho\phi)}{\partial t} &= \frac{\partial (\rho\phi)}{\partial P} \frac{\partial P}{\partial t} \\
 &= \left( \rho \frac{\partial (\rho)}{\partial P} + \phi \frac{\partial (\phi)}{\partial P} \right) \frac{\partial P}{\partial t}
 
 \end{align}
 $$
+
+Recall the definition of compressibility of both fluid and rock (yes, [rock can be compressible](compaction-drive-res)!),
+
+$$
+\begin{align}
+
+c_f &= \frac{1}{\rho_f} \frac{d\rho_f}{dP} \\
+\rho_f c_f &= \frac{d\rho_f}{dP}
+
+\end{align}
+$$
+
+
+$$
+\begin{align}
+
+c_r &= \frac{1}{\phi} \frac{d\phi}{dP} \\
+\phi c_r &= \frac{d\phi}{dP}
+
+\end{align}
+$$
+
 
 
 
