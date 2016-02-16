@@ -9,6 +9,22 @@ disqus_identifier: ecca6802-d4a7-11e5-8088-ab2e2482fade
 
 We have derived the general form of continuity equation for fluid flow in porous media in the [previous post](previous-post).
 
+$$ \frac{\partial{ \left( \rho\phi \right) }}{\partial{t}} = \frac{-1}{r} \frac{\partial}{\partial r}(r \rho u_{r}) $$
+
+Consider Darcy's Law,
+
+$$ u_s = -\frac{k}{\mu} \left( \frac{\partial P}{\partial s} - \rho g \frac{dz}{ds} \right) $$
+
+Translating that form in $$ r $$ direction gives,
+
+$$ u_r = \frac{k}{\mu} \left( \frac{\partial P}{\partial r} \right) $$
+
+Introduce Darcy's equation into continuity equation,
+
+$$ \frac{\partial{ \left( \rho\phi \right) }}{\partial{t}} = \frac{-1}{r} \frac{\partial}{\partial r}\left( r \rho \frac{k}{\mu} \frac{\partial P}{\partial r} \right) $$
+
+
+
 
 
 
