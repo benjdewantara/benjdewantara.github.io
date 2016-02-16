@@ -75,7 +75,17 @@ $$ \frac{\mu\rho\phi c_T}{k} \frac{\partial P}{\partial t} = \frac{-1}{r} \frac{
 
 Evaluate the right-hand side,
 
-$$ \frac{\mu\rho\phi c_T}{k} \frac{\partial P}{\partial t} = \frac{-1}{r} \left[ \frac{\partial r}{\partial r} \rho \frac{\partial P}{\partial r} + r \frac{\partial \rho}{\partial P} \left( \frac{\partial P}{\partial r} \right)^{2} + r\rho \frac{\partial^2 P}{\partial r^2} \right] $$
+$$
+\begin{align}
+
+\frac{\mu\rho\phi c_T}{k} \frac{\partial P}{\partial t} &= \frac{-1}{r} \left[ \frac{\partial r}{\partial r} \rho \frac{\partial P}{\partial r} + r \frac{\partial \rho}{\partial P} \left( \frac{\partial P}{\partial r} \right)^{2} + r\rho \frac{\partial^2 P}{\partial r^2} \right] \\
+
+&= \frac{-1}{r} \left[ \frac{\partial r}{\partial r} \rho \frac{\partial P}{\partial r} + r c_f \rho \left( \frac{\partial P}{\partial r} \right)^{2} + r\rho \frac{\partial^2 P}{\partial r^2} \right] \\
+
+&= \frac{-\rho}{r} \left[ \frac{\partial r}{\partial r} \frac{\partial P}{\partial r} + r c_f  \left( \frac{\partial P}{\partial r} \right)^{2} + r \frac{\partial^2 P}{\partial r^2} \right] \\
+
+\end{align}
+$$
 
 
 
