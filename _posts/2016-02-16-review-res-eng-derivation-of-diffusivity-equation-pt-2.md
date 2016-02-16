@@ -27,7 +27,24 @@ $$ \frac{\partial{ \left( \rho\phi \right) }}{\partial{t}} = \frac{-1}{r} \frac{
 
 Now, from this point on, we're gonna introduce more assumptions in order to further derive this equation. Notice the right-hand side of the equation, we have variables $$ \rho $$, $$ k $$, $$ \mu $$ that are obviously $$ f(P) $$ (a function of pressure). Pressure itself is $$ f(r) $$ (a function of space, which in this case only happens in $$ r $$).
 
-We need to assume that the porous medium (i.e. the rock) has constant permeability and compressibility (Yes! [Rock can be compressible](compaction-drive-res)!).
+We need to assume that the porous medium (i.e. the rock) has constant permeability and fluid's viscosity stays constant.
+
+{% comment %}
+ (yes, [rock can be compressible](compaction-drive-res)!).
+{% endcomment %}
+
+
+$$ \frac{\mu}{k} \frac{\partial(\rho\phi)}{\partial{t}} = \frac{-1}{r} \frac{\partial}{\partial r} \left( r \rho \frac{\partial P}{\partial r} \right) $$
+
+Evaluate the left-hand side,
+
+$$
+\begin{align}
+\frac{\partial (\rho\phi)}{\partial t} &= \frac{\partial (\rho\phi)}{\partial P} \frac{\partial P}{\partial t} \\
+&= \left( \rho \frac{\partial (\rho)}{\partial P} + \phi \frac{\partial (\phi)}{\partial P} \right) \frac{\partial P}{\partial t}
+
+\end{align}
+$$
 
 
 
