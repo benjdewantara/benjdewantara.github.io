@@ -25,7 +25,7 @@ Introduce Darcy's equation into continuity equation,
 
 $$ \frac{\partial{ \left( \rho\phi \right) }}{\partial{t}} = \frac{-1}{r} \frac{\partial}{\partial r}\left( r \rho \frac{k}{\mu} \frac{\partial P}{\partial r} \right) $$
 
-Now, from this point on, we're gonna introduce more assumptions in order to further derive this equation. Notice the right-hand side of the equation, we have variables $$ \rho $$, $$ k $$, $$ \mu $$ that are obviously $$ f(P) $$ (a function of pressure). Pressure itself is $$ f(r) $$ (a function of space, which in this case only happens in $$ r $$).
+Now, from this point on, we're gonna introduce more assumptions in order to further derive this equation. Notice on the right-hand side of the equation, we have variables $$ \rho $$, $$ k $$, $$ \mu $$ that are obviously $$ f(P) $$ (a function of pressure). Pressure itself is $$ f(r) $$ (a function of space, which in this case only happens in $$ r $$).
 
 We need to assume that the porous medium (i.e. the rock) has constant permeability and fluid's viscosity stays constant.
 
@@ -37,7 +37,7 @@ $$
 \begin{align}
 
 \frac{\partial (\rho\phi)}{\partial t} &= \frac{\partial (\rho\phi)}{\partial P} \frac{\partial P}{\partial t} \\
-&= \left( \rho \frac{\partial (\rho)}{\partial P} + \phi \frac{\partial (\phi)}{\partial P} \right) \frac{\partial P}{\partial t}
+&= \left( \rho \frac{\partial (\phi)}{\partial P} + \phi \frac{\partial (\rho)}{\partial P} \right) \frac{\partial P}{\partial t}
 
 \end{align}
 $$
@@ -55,18 +55,27 @@ c_r &= \frac{1}{\phi} \frac{d\phi}{dP}\\
 \end{align}
 $$
 
+Substituting the compressibility expression into the left-hand,
 
 $$
 \begin{align}
 
-c_r &= \frac{1}{\phi} \frac{d\phi}{dP} \\
-\phi c_r &= \frac{d\phi}{dP}
+\frac{\partial (\rho\phi)}{\partial t} &= \left( \rho \phi c_r + \phi \rho c_f \right) \frac{\partial P}{\partial t} \\
+&= \rho\phi (c_r + c_f) \frac{\partial P}{\partial t} \\
+&= \rho\phi c_T \frac{\partial P}{\partial t}
 
 \end{align}
 $$
 
+where $$ c_T = (c_r + c_f) $$.
 
+Substituting this left-hand expression back into the derivation,
 
+$$ \frac{\mu\rho\phi c_T}{k} \frac{\partial P}{\partial t} = \frac{-1}{r} \frac{\partial}{\partial r} \left( r \rho \frac{\partial P}{\partial r} \right) $$
+
+Evaluate the right-hand side,
+
+$$ \frac{\mu\rho\phi c_T}{k} \frac{\partial P}{\partial t} = \frac{-1}{r} \left[ \frac{\partial r}{\partial r} \rho \frac{\partial P}{\partial r} + r \frac{\partial \rho}{\partial P} \left( \frac{\partial P}{\partial r} \right)^{2} + r\rho \frac{\partial^2 P}{\partial r^2} \right] $$
 
 
 
