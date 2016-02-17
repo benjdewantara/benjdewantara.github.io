@@ -25,7 +25,16 @@ Introduce Darcy's equation into continuity equation,
 
 $$ \frac{\partial{ \left( \rho\phi \right) }}{\partial{t}} = \frac{-1}{r} \frac{\partial}{\partial r}\left( r \rho \frac{k}{\mu} \frac{\partial P}{\partial r} \right) $$
 
-Now, from this point on, we're gonna introduce more assumptions in order to further derive this equation. Notice on the right-hand side of the equation, we have variables $$ \rho $$, $$ k $$, $$ \mu $$ that are obviously $$ f(P) $$ (a function of pressure). Pressure itself is $$ f(r) $$ (a function of space, which in this case only happens in $$ r $$).
+This form is by far the most general form of diffusivity equation before we introduce further assumptions into our derivation. Until now, we have made the following assumptions:
+* Flow only happens in $$ r $$ direction
+* Laminar (or Darcy) flow
+
+From this point on, we're gonna introduce more assumptions in order to further derive this equation. Notice on the right-hand side of the equation, we have variables $$ \rho $$, $$ k $$, $$ \mu $$ that are obviously $$ f(P) $$ (a function of pressure). Pressure itself is $$ f(r) $$ (a function of space, which again in this case only happens in $$ r $$). The 
+
+[TOC]
+
+
+# Flow of single-phase liquid (small, constant compressibility)
 
 We need to assume that the porous medium (i.e. the rock) has constant permeability and fluid's viscosity stays constant.
 
@@ -67,7 +76,7 @@ $$
 \end{align}
 $$
 
-where $$ c_T = (c_r + c_f) $$.
+where $$ c_T $$ denotes the total compressibility ($$ c_T = (c_r + c_f) $$).
 
 Substituting this left-hand expression back into the derivation,
 
@@ -94,12 +103,13 @@ $$
 
 \frac{\mu\phi c_T}{k} \frac{\partial P}{\partial t} &= \frac{-1}{r} \left[ \frac{\partial r}{\partial r} \frac{\partial P}{\partial r} + r \frac{\partial^2 P}{\partial r^2} \right] \\
 
-\frac{\mu\phi c_T}{k} \frac{\partial P}{\partial t} &= \frac{-1}{r} \frac{\partial}{\partial r} \left( \frac{\partial P}{\partial r} \right) \\
+\frac{\mu\phi c_T}{k} \frac{\partial P}{\partial t} &= \frac{-1}{r} \frac{\partial}{\partial r} \left( r \frac{\partial P}{\partial r} \right) \\
 
 
 \end{align}
 $$
 
+# Flow of gas
 
 
 
