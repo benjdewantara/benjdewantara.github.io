@@ -9,7 +9,7 @@ disqus_identifier: 5012a7ae-cb0d-11e5-8a5a-080027047769
 
 [Diffusivity equation for fluid flow in porous media](diffusivity-eq) is essentially a product of the notion of [Conservation of Mass](continuity-eq) that's been derived thoroughly with [Darcy's law](darcy-eq) being further applied somewhere along the derivation. I present a brief review on the derivation in this post.
 
-Since the flow of fluid in a *porous medium* (i.e. a *reservoir*) mostly follow a radial flow, we will put our mathematical abstraction using a [cylindrical coordinate system](cylindrical-coord) $$ (r, \theta, z) $$. However, it is possible as well for the flow to happen in $$ z $$ direction.
+Since the flow of fluid in a *porous medium* (i.e. a *reservoir*) mostly follow a radial flow, we will put our mathematical abstraction using a [cylindrical coordinate system](cylindrical-coord) $$ (r, \theta, z) $$.
 
 We would like to observe the mass in a fixed point in **`space`**, say at $$ r=r_a $$, $$ \theta=\theta_a$$, and $$ z=z_a $$ or at $$ (r_a, \theta_a, z_a) $$. Consider the following image (taken from *Wikipedia*),
 
