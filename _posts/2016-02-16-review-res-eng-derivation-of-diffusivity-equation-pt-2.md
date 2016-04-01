@@ -3,7 +3,7 @@ layout: post
 title: "Reservoir Engineering: Derivation of The Diffusivity Equation (part 2)"
 date: 2016-02-16 19:21:00 +0700
 comments: true
-categories: reservoir-engineering
+permalink: 2016-02-16-review-res-eng-derivation-of-diffusivity-equation-pt-2
 disqus_identifier: ecca6802-d4a7-11e5-8088-ab2e2482fade
 ---
 
@@ -31,7 +31,6 @@ This form is by far the most general form of diffusivity equation before we intr
 
 From this point on, we're gonna introduce more assumptions in order to further derive this equation. Notice on the right-hand side of the equation, we have variables $$ \rho $$, $$ k $$, $$ \mu $$ that are obviously $$ f(P) $$ (a function of pressure). Pressure itself is $$ f(r) $$ (a function of space, which again in this case only happens in $$ r $$). The 
 
-[TOC]
 
 
 # Flow of single-phase liquid (small, constant compressibility)

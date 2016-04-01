@@ -3,6 +3,7 @@ layout: post
 title: "Why Jekyll Now?"
 date: 2016-02-01 21:36:00 +0700
 comments: true
+permalink: 2016-02-01-why-jekyll-now
 disqus_identifier: 28e2103e-c8f1-11e5-9045-080027047769
 ---
 

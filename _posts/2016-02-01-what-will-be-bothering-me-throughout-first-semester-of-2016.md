@@ -3,6 +3,7 @@ layout: post
 title: "What Will be Bothering Me Throughout the First Semester of 2016"
 date: 2016-02-01 23:14:00 +0700
 comments: true
+permalink: 2016-02-01-what-will-be-bothering-me-throughout-first-semester-of-2016
 disqus_identifier: 76f2e370-c8fb-11e5-b76f-080027047769
 ---
 

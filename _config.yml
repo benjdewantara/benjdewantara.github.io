@@ -17,3 +17,5 @@ github_username:  benjdewantara
 
 # Build settings
 markdown: kramdown
+highlighter: rouge
+#highlighter: pygment

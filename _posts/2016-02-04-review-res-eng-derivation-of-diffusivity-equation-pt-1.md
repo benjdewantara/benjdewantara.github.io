@@ -3,7 +3,7 @@ layout: post
 title: "Reservoir Engineering: Derivation of The Diffusivity Equation (part 1)"
 date: 2016-02-04 14:02:00 +0700
 comments: true
-categories: reservoir-engineering
+permalink: 2016-02-04-review-res-eng-derivation-of-diffusivity-equation-pt-1
 disqus_identifier: 5012a7ae-cb0d-11e5-8a5a-080027047769
 ---
 
