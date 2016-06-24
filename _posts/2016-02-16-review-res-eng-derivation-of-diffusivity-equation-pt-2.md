@@ -7,7 +7,7 @@ permalink: 2016-02-16-review-res-eng-derivation-of-diffusivity-equation-pt-2
 disqus_identifier: ecca6802-d4a7-11e5-8088-ab2e2482fade
 ---
 
-We have derived the general form of continuity equation for fluid flow in porous media in the [previous post](previous-post).
+We have derived the general form of continuity equation for fluid flow in porous media in the [previous post][previous-post].
 
 $$ \frac{\partial{ \left( \rho\phi \right) }}{\partial{t}} = \frac{-1}{r} \frac{\partial}{\partial r}(r \rho u_{r}) $$
 
