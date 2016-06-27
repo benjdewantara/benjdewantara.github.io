@@ -50,7 +50,7 @@ $$
 \end{align}
 $$
 
-Recall the definition of compressibility of both fluid and rock (yes, [rock can be compressible](compaction-drive-res)!),
+Recall the definition of compressibility of both fluid and rock (yes, [rock can be compressible][compaction-drive-res]!),
 
 $$
 \begin{align}
