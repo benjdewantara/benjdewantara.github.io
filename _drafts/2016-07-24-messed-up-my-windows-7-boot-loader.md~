@@ -1,0 +1,29 @@
+---
+layout: post
+title: "Messed Up My Windows 7 Boot Loader"
+date: 2016-07-24 18:00:00 +0700
+comments: true
+permalink: 2016-07-24-messed-up-my-windows-7-boot-loader.md
+disqus_identifier: 43601100-5176-11e6-9bce-e8de279ede17
+---
+
+### Computer condition
+1. Has two drives installed. One SSD (`/dev/sdb`) and one HDD (`/dev/sda`). Windows 7 as the
+primary OS was installed in the SSD. BIOS was set to boot into SSD.
+2. 
+
+I was trying to reproduce a scenario on how to get rid of a secondary OS with an
+existing primary OS (Windows 7) before actually installing a secondary
+OS. For this, I chose Ubuntu 16.04 LTS.
+
+- Iteration #1 (Installed 
+    
+
+- Iteration #2
+
+
+- Iteration #3
+
+
+
+
