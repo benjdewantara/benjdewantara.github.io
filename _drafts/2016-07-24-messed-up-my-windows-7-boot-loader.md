@@ -34,17 +34,17 @@ Ubuntu is one of those user-friendly linux distributions and thus considered [on
 
 ![Choosing installation type windows](http://i.stack.imgur.com/Oh3pu.png)
 
-***Fig. 1** - Some image taken from <http://askubuntu.com>. Replace Windows 8 with Windows 7*
+***Fig. 1** - Image taken from <http://askubuntu.com>. Replace Windows 8 with Windows 7*
 
 Only then did I remember that I actually had two drives! Fearing that I would mess up, I went for option *Something else* just to be safe. The next window would then be something similar to this,
 
 ![Installation type (Managing partition)](http://3.bp.blogspot.com/-pxWk2cy-L_8/UjDam7FVitI/AAAAAAAABhY/rqNPjx0PVFg/s1600/ubuntu6.png)
 
-***Fig. 2** - Some image taken from [everydaylinuxuser.com](http://www.everydaylinuxuser.com/2013/09/install-ubuntu-linux-alongside-windows.html). Just a sketch. The actual windows showed up in my case had `/dev/sda` and `/dev/sdb` in it*
+***Fig. 2** - Image taken from [everydaylinuxuser.com](http://www.everydaylinuxuser.com/2013/09/install-ubuntu-linux-alongside-windows.html). Just a sketch. The actual windows showed up in my case had `/dev/sda` and `/dev/sdb` in it*
 
 Now this is the part where I messed up.
 
-I had watched [a YouTube video tutorial on installing Arch Linux][]. It was said that it was neater to just declare two partitions for `swap` and `/`. I then proceed by changing the partition scheme for `/dev/sda` into the following,
+I had watched [a YouTube video tutorial on installing Arch Linux][]. It was said that it was neater to just declare two partitions for `swap` and `/`. I should not worry about the specifics too much, i.e. let Ubuntu further allocate how to put `/boot`, `/usr`, `/home` directories. I then proceed by changing the partition scheme for `/dev/sda` into the following,
 
 | Device | Start | End | Sectors | Size | Type |
 |:-------|:------|:----|:--------|:-----|:-----|
@@ -53,24 +53,39 @@ I had watched [a YouTube video tutorial on installing Arch Linux][]. It was said
 | /dev/sda3 | 7793481728 | 7797481471 | 3999744 | 1,9G | Linux swap |
 | /dev/sda4 | 7797481472 | 7813482495 | 16001024 | 7,6G | Linux filesystem |
 
-with `/dev/sda4` being the `/` partition.
+with `/dev/sda3` being the `swap` partition and `/dev/sda4` being the `/` partition.
 
 Now, if you notice *Fig. 2*, you can see that Ubuntu also asks us to specify *Device for boot loader installation*. I guessed this referred to [GRUB]. This was the part where it got messy to the point that I had to resort to re-installing Ubuntu for four times. I put the list of my failed attempts as follows
 
 
-- Iteration 0 (Installed `GRUB` on `/dev/sdb`)
+- Iteration 0 *aka initial attempt* (Installed `/` on a partition in `/dev/sda` and boot loader on `/dev/sdb`)
   
-    I did a quick Google search and found that `GRUB` should be installed on the disk (not on a partition). This means on a `/dev/sdX`, rather than `/dev/sdXY`. I thought that since my BIOS booted from SSD (`/dev/sdb`), it would make sense to install the boot loader on `/dev/sdb`.
+    I did a quick Google search and found that `GRUB` should be installed on the disk (not on a partition). This means on a `/dev/sdX`, rather than some specific `/dev/sdXY`. I thought that since my BIOS booted from SSD (`/dev/sdb`), it would make sense to install the boot loader on `/dev/sdb`.
 
-    Everything seemed good. The machine restarted. `GRUB` showed up, but there was no Windows 7 option. I just thought it must have been *that regular issue* in which I should just resort to [Boot-Repair][]'s automatic repair and `GRUB` would finally show Windows 7.
+    Everything seemed good. Restarted the machine. `GRUB` showed up, but there was no Windows 7 option. I just thought it must have been *that regular issue* in which I should just resort to [Boot-Repair][]'s automatic repair and `GRUB` would finally display Windows 7.
 
+    ![Boot Repair](http://pix.toile-libre.org/upload/original/1335260967.png)
+
+    ***Fig. 3** Image taken from [help.ubuntu.com](https://help.ubuntu.com/community/Boot-Repair). Boot Repair window*
+
+    I instead encountered this problem.
+
+    > GPT detected. Please create a BIOS-Boot partition (>1MB, unformatted filesystem, bios_grub flag). This can be performed via tools such as Gparted. Then try again.
+
+    This problem seemed to present itself to other people in various ways (try googling by quoting the words *"GPT detected. Please create a..."*).
+
+    This was confusing. I had been under the impression that `GRUB` was a boot loader. And a boot loader, as given in Fig. 2, should be installed on a disk rather than a disk partition. So, why was boot-repair asking me to create a *BIOS-Boot* partition? Nevertheless, since I installed the boot loader on `/dev/sdb`, I attempted to create an extra partition using `gparted`, which could not be done. `gparted` did not display a `bios_grub` flag option when viewing `/dev/sdb`, but it did display one if viewing `/dev/sda`.
+
+    Since I could not make any progress, I decided to completely reinstall Ubuntu. Keeping in mind that I should 
     
 
-- Iteration 1 (Installed `GRUB` *on a partition* in `/dev/sda`)
+- Iteration 1 (Installed `/` on a partition in `/dev/sda`. And both `/boot` and boot loader ***on a partition*** in `/dev/sda`)
+    
+    
 
-
-- Iteration 2
-
+- Iteration 2 (Installed both `/` and boot loader on `/dev/sda`. Then set my motherboard to boot from `/dev/sda` rather than `/dev/sdb`)
+    At this point, I had given up trying to recover my Windows 7 installation and decided to
+    
 
 
 

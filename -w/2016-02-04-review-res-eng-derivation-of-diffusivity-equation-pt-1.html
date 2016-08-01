@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Reservoir Engineering: Derivation of The Diffusivity Equation (part 1)</title>
+  <meta name="description" content="Diffusivity equation for fluid flow in porous media is essentially a product of the notion of Conservation of Mass that’s been derived thoroughly with Darcy’...">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://benjdewantara.github.io/2016-02-04-review-res-eng-derivation-of-diffusivity-equation-pt-1">
+  <link rel="alternate" type="application/rss+xml" title="Some other blog of benjdewantara" href="http://benjdewantara.github.io/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Some other blog of benjdewantara</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Reservoir Engineering: Derivation of The Diffusivity Equation (part 1)</h1>
+    <p class="post-meta"><time datetime="2016-02-04T14:02:00+07:00" itemprop="datePublished">Feb 4, 2016</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><a href="http://petrowiki.org/Reservoir_inflow_performance">Diffusivity equation for fluid flow in porous media</a> is essentially a product of the notion of <a href="https://en.wikipedia.org/wiki/Continuity_equation#Fluid_dynamics">Conservation of Mass</a> that’s been derived thoroughly with <a href="https://en.wikipedia.org/wiki/Darcy%27s_law#Darcy.27s_Law_in_Petroleum_Engineering">Darcy’s law</a> being further applied somewhere along the derivation. I present a brief review on the derivation in this post.</p>
+
+<p>Since the flow of fluid in a <em>porous medium</em> (i.e. a <em>reservoir</em>) mostly follow a radial flow, we will put our mathematical abstraction using a <a href="https://en.wikipedia.org/wiki/Cylindrical_coordinate_system">cylindrical coordinate system</a> <script type="math/tex">(r, \theta, z)</script>.</p>
+
+<p>We would like to observe the mass in a fixed point in <strong><code class="highlighter-rouge">space</code></strong>, say at <script type="math/tex">r=r_a</script>, <script type="math/tex">\theta=\theta_a</script>, and <script type="math/tex">z=z_a</script> or at <script type="math/tex">(r_a, \theta_a, z_a)</script>. Consider the following image (taken from <em>Wikipedia</em>),</p>
+
+<p><img src="http://benjdewantara.github.io/assets/Cylindrical_coordinate_surfaces.gif" alt="Cylindrical coordinate surfaces" /></p>
+
+<p>A point in a cylindrical space is the intersection of the three colored surfaces.</p>
+
+<p>Now, consider its <a href="https://en.wikipedia.org/wiki/Control_volume">control volume</a> whose volume is <script type="math/tex">V_b = r_a \Delta{r_a} \Delta{\theta_a} \Delta{z_a}</script>. This control volume contains the point <script type="math/tex">(r_a, \theta_a, z_a)</script> (i.e. <script type="math/tex">r_{a}</script> lies between <script type="math/tex">r_{a} - \frac{\Delta{r_a}}{2}</script> and <script type="math/tex">r_{a} + \frac{\Delta{r_a}}{2}</script>, and the same also applies to both <script type="math/tex">\theta_a</script> and <script type="math/tex">z_a</script>).</p>
+
+<p><strong><code class="highlighter-rouge">mass</code></strong> residing at that fixed point <script type="math/tex">a</script> in <strong><code class="highlighter-rouge">space</code></strong> <strong><em>changes with respect to</em></strong> <strong><code class="highlighter-rouge">time</code></strong>.</p>
+
+<script type="math/tex; mode=display">\frac{\Delta{m_{cv}}}{\Delta{t}} = \frac{\Delta{m_{(r_a, \theta_a, z_a)}}}{\Delta{t}}</script>
+
+<p>What causes that change? Notice that <strong><code class="highlighter-rouge">mass</code></strong> <strong><em>is forever conserved</em></strong>, unless there is a stream of <strong><code class="highlighter-rouge">mass</code></strong> entering or leaving that control volume. So let’s say, there is a stream of <strong><code class="highlighter-rouge">mass</code></strong>entering and another stream leaving point <script type="math/tex">a</script> in <script type="math/tex">r</script>, <script type="math/tex">\theta</script>, and <script type="math/tex">z</script> direction.</p>
+
+<script type="math/tex; mode=display">\frac{\Delta{m_{cv}}}{\Delta{t}} = \dot{m}_{in} - \dot{m}_{out}</script>
+
+<p>Let us first consider the <script type="math/tex">\dot{m}_{in} - \dot{m}_{out}</script> that happens only <em>with respect to</em> <script type="math/tex">r</script>. Recall that <script type="math/tex">\dot{m} = \rho u A</script>. So in <script type="math/tex">r</script> direction,</p>
+
+<p><script type="math/tex">(\rho u A)_{in}</script> enters the control volume at <script type="math/tex">r_a - \frac{\Delta{r_a}}{2}</script> <br />
+while <script type="math/tex">(\rho u A)_{out}</script> leaves the control volume at <script type="math/tex">r_a + \frac{\Delta{r_a}}{2}</script></p>
+
+<p>Therefore,</p>
+
+<script type="math/tex; mode=display">(\rho u A)_{in} = (\rho u)_{r_a - \frac{\Delta{r_a}}{2}} \times  A_{r_a - \frac{\Delta{r_a}}{2}}</script>
+
+<script type="math/tex; mode=display">(\rho u A)_{in} = (\rho u)_{r_a - \frac{\Delta{r_a}}{2}} \times  (r_a - \frac{\Delta{r_a}}{2}) \Delta{\theta} \Delta{z}</script>
+
+<p>Recall that backward, forward, and centered difference at one point must all agree with one another so as to satisfy the existence of the derivative  at that point.</p>
+
+<script type="math/tex; mode=display">\lim_{h\to0}\frac{f(x-h)-f(x)}{-h} = \lim_{h\to0}\frac{f(x)-f(x+h)}{-h} = \lim_{h\to0}\frac{f(x-h)-f(x+h)}{-2h} = \frac{df}{dx}</script>
+
+<p>Thus, consider the following <a href="https://en.wikipedia.org/wiki/Finite_difference">backward-difference</a> of <script type="math/tex">(\rho u)_{r_a}</script> from <script type="math/tex">r_a - \frac{\Delta{r_a}}{2}</script> to <script type="math/tex">r_a</script></p>
+
+<script type="math/tex; mode=display">\frac{(\rho u)_{r_a - \frac{\Delta{r_a}}{2}} - (\rho u)_{r_a}}{(r_a - \frac{\Delta{r_a}}{2}) - (r_a)} = \frac{\partial{(\rho u)}_{r_a}}{\partial{r_a}}</script>
+
+<script type="math/tex; mode=display">-2\frac{(\rho u)_{r_a - \frac{\Delta{r_a}}{2}} - (\rho u)_{r_a}}{\Delta{r_a}} = \frac{\partial{(\rho u)}_{r_a}}{\partial{r_a}}</script>
+
+<p>Similarly, we can derive the <a href="https://en.wikipedia.org/wiki/Finite_difference">forward-difference</a> expression in a similar manner. We can rearrange both forward and backward difference which invole <script type="math/tex">(\rho u)_{r_a}</script> into,</p>
+
+<script type="math/tex; mode=display">(\rho u)_{r_a - \frac{\Delta{r_a}}{2}} = (\rho u)_{r_a} - \frac{\partial(\rho u)_{r_a}}{\partial r_a} \frac{\Delta{r}}{2}</script>
+
+<script type="math/tex; mode=display">(\rho u)_{r_a + \frac{\Delta{r_a}}{2}} = (\rho u)_{r_a} + \frac{\partial(\rho u)_{r_a}}{\partial r_a} \frac{\Delta{r}}{2}</script>
+
+<p>The <script type="math/tex">(\rho u A)_{in} - (\rho u A)_{out}</script> expression then translates into,</p>
+
+<script type="math/tex; mode=display">(\rho u A)_{in} - (\rho u A)_{out}</script>
+
+<script type="math/tex; mode=display">\left( -(\rho u)_{r_a} \Delta{r_a} - r \Delta{r_a} \frac{\partial(\rho u)_{r_a}}{\partial r_a} \right) \Delta{\theta_a} \Delta{z_a}</script>
+
+<p>Now, we evalute the left-hand expression of the conservation of mass equation earlier,</p>
+
+<script type="math/tex; mode=display">\frac{\Delta{m_{cv}}}{\Delta{t}} = \frac{\Delta{ \left( \rho\phi V_b \right)_{cv} }}{\Delta{t}}</script>
+
+<p>Substitute <script type="math/tex">V_b = r_a \Delta{r_a} \Delta{\theta_a} \Delta{z_a}</script> into the equation,</p>
+
+<script type="math/tex; mode=display">\frac{\Delta{ \left( \rho\phi r_a \Delta{r_a} \Delta{\theta_a} \Delta{z_a} \right)_{cv} }}{\Delta{t}} = \left( -(\rho u)_{r_a} \Delta{r_a} - r \Delta{r_a} \frac{\partial(\rho u)_{r_a}}{\partial r_a} \right) \Delta{\theta_a} \Delta{z_a}</script>
+
+<script type="math/tex; mode=display">\frac{\Delta{ \left( \rho\phi r_a \right)_{cv} }}{\Delta{t}} = \left( -(\rho u)_{r_a} - r \frac{\partial(\rho u)_{r_a}}{\partial r_a} \right)</script>
+
+<script type="math/tex; mode=display">\frac{\Delta{ \left( \rho\phi \right)_{cv} }}{\Delta{t}} = \frac{-1}{r_a}\left( (\rho u)_{r_a} \frac{\partial r}{\partial r} + r \frac{\partial(\rho u)_{r_a}}{\partial r_a} \right)</script>
+
+<script type="math/tex; mode=display">\frac{\Delta{ \left( \rho\phi \right)_{cv} }}{\Delta{t}} = \frac{-1}{r_a}\left( \frac{\partial}{\partial r_a}(r_a \rho u_{r_a}) \right)</script>
+
+<p>Since we’ve been looking at point <script type="math/tex">a</script>, we can further deduce that this form applies to any point in <strong><code class="highlighter-rouge">space</code></strong>. Also, as <script type="math/tex">\Delta{t} \to 0</script>, we observe the derivative of <script type="math/tex">\left(\rho\phi\right)</script>. The conservation of mass equation then becomes the continuity equation,</p>
+
+<script type="math/tex; mode=display">\frac{\partial{ \left( \rho\phi \right) }}{\partial{t}} = \frac{-1}{r} \frac{\partial}{\partial r}(r \rho u_{r})</script>
+
+<p>Note that, this continuity equation only accounts for flow happening only in <script type="math/tex">r</script> direction (i.e. we’ve been assuming that no flow happens in <script type="math/tex">\theta</script> and <script type="math/tex">z</script> direction).</p>
+
+
+  </div>
+
+
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    
+    var disqus_config = function () {
+        this.page.url = "http://benjdewantara.github.io/2016-02-04-review-res-eng-derivation-of-diffusivity-equation-pt-1";  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = "5012a7ae-cb0d-11e5-8a5a-080027047769"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        //this.developer = 1
+    };
+    //
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//benjdewantara.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+<script id="dsq-count-scr" src="//benjdewantara.disqus.com/count.js" async></script>
+
+
+
+
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Some other blog of benjdewantara</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Some other blog of benjdewantara</li>
+          <li><a href="mailto:ben.manullang@students.itb.ac.id">ben.manullang@students.itb.ac.id</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/benjdewantara"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">benjdewantara</span></a>
+
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/benjdewantara"><span class="icon icon--twitter"><svg viewBox="0 0 16 16"><path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/></svg>
+</span><span class="username">benjdewantara</span></a>
+
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>An engineering student.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

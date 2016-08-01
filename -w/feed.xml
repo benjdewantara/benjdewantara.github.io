@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Some other blog of benjdewantara</title>
+    <description>An engineering student.
+</description>
+    <link>http://benjdewantara.github.io/</link>
+    <atom:link href="http://benjdewantara.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 25 Jul 2016 17:25:26 +0700</pubDate>
+    <lastBuildDate>Mon, 25 Jul 2016 17:25:26 +0700</lastBuildDate>
+    <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>(Bachelor) Thesis Defense</title>
+        <description>&lt;p&gt;I defended &lt;a href=&quot;http://github.com/benjdewantara/fdressim&quot;&gt;my bachelor thesis&lt;/a&gt; on Wednesday, 21 June 2016 and after some revisions, submitted my final thesis the day after. It is safe to assume that I have a Bachelor of Engineering degree now (I am an engineer!).&lt;/p&gt;
+
+&lt;p&gt;Most thanks are given to my mom who always understands my nerdy need and was willing to give me some &lt;em&gt;rather high-end&lt;/em&gt; computer.&lt;/p&gt;
+
+&lt;p&gt;Many thanks to:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;my thesis advisor, Mas &lt;a href=&quot;http://www.tm.itb.ac.id/?page_id=576&quot;&gt;Zuher Syihab&lt;/a&gt;,&lt;/li&gt;
+  &lt;li&gt;my thesis examiner, Mas &lt;a href=&quot;http://www.tm.itb.ac.id/?page_id=775&quot;&gt;Amega Yasutra&lt;/a&gt;,&lt;/li&gt;
+  &lt;li&gt;and Mas &lt;a href=&quot;http://www.tm.itb.ac.id/?page_id=570&quot;&gt;Sutopo&lt;/a&gt; who was also present and gave plenty of inputs into my thesis discussion.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I may have taken five years to graduate, but I must say I barely regret it. Due to my having to take (and &lt;em&gt;retake&lt;/em&gt;) some credits, I used the chance to hone my skills and revisit some fundamental concepts, which I almost took for granted.&lt;/p&gt;
+
+&lt;video&gt;&lt;source src=&quot;https://storage.googleapis.com/vidsums/a73107f8-1e0d-4f51-b8cd-70326176328f.mp4&quot; /&gt;&amp;lt;/source&amp;gt;&lt;/video&gt;
+
+&lt;p&gt;A few key points I need to research further as pointed out by the three professors:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;what is the underlying numerical method behind &lt;code class=&quot;highlighter-rouge&quot;&gt;scipy.linalg.solve&lt;/code&gt;? Since I’ve been treating it as a blackbox the whole time&lt;/li&gt;
+  &lt;li&gt;how to perform &lt;em&gt;material balance&lt;/em&gt; check at each time level? Note: I’d rather use the term &lt;em&gt;conservation of mass&lt;/em&gt; because it sounds cooler.&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Sat, 25 Jun 2016 01:00:00 +0700</pubDate>
+        <link>http://benjdewantara.github.io/2016-06-25-bachelor-thesis-defense</link>
+        <guid isPermaLink="true">http://benjdewantara.github.io/2016-06-25-bachelor-thesis-defense</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Matrix Algebra with SciPy</title>
+        <description>&lt;p&gt;One of my worries if I wanted to implement &lt;a href=&quot;finite-difference-method&quot;&gt;finite-difference method&lt;/a&gt; to solve a &lt;a href=&quot;coefficient-matrix&quot;&gt;coefficient matrix&lt;/a&gt; using Python is having to reinvent the wheel by reimplementing some numerical methods (like &lt;a href=&quot;gaussian-elimination&quot;&gt;Gaussian elimination&lt;/a&gt;). That is time-consuming. I was so newbie in programming that I forgot Python is a widely-used programming language with many open-source libraries, meaning that someone out there should have already created a library for scientific purposes.&lt;/p&gt;
+
+&lt;p&gt;Here come &lt;a href=&quot;scipy&quot;&gt;SciPy&lt;/a&gt; and &lt;a href=&quot;numpy&quot;&gt;NumPy&lt;/a&gt;,&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;np&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;scipy&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;NumPy is a package providing N-dimensional array object for scientific computing purposes. Why NumPy? Because conventional Python list can be time-consuming when dealing with many matrices with large dimensions.&lt;/p&gt;
+
+&lt;p&gt;SciPy is a package providing many numerical methods and computational algorithms. SciPy is also designed to work hand-in-hand with NumPy.&lt;/p&gt;
+
+&lt;p&gt;The following is an example of a system of linear equations whose coefficients are &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt;, and &lt;script type=&quot;math/tex&quot;&gt;z&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;Consider a system of &lt;em&gt;newbie&lt;/em&gt; linear equations (I have set &lt;script type=&quot;math/tex&quot;&gt;x=1&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;y=2&lt;/script&gt;, and &lt;script type=&quot;math/tex&quot;&gt;z=3&lt;/script&gt; here),&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+6x + 9y + 4z &amp;= 36\\
+10x + 2y + 2z &amp;= 20\\
+4x + 4y + 10z &amp;= 42
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;Transform them into a matrix,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\left(\begin{matrix}
+6 &amp;9 &amp;4\\
+10 &amp;2 &amp;2\\
+4 &amp;4 &amp;10
+\end{matrix}\right)
+\left(\begin{matrix}
+x\\
+y\\
+z
+\end{matrix}\right)
+=
+\left(\begin{matrix}
+36\\
+20\\
+42
+\end{matrix}\right) %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;Of course &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt;, and &lt;script type=&quot;math/tex&quot;&gt;z&lt;/script&gt; can easily be solved using pencil and paper. But here’s a way to find the solution using SciPy.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;np&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;scipy&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;linalg&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; 
+   &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;coeffMatrix&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; 
+   &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;coeffMatrix&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;coeffMatrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; 
+   &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;results&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;36&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;results&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; 
+   &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;variables&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;linalg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;solve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;coeffMatrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;variables&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.&lt;/span&gt;  &lt;span class=&quot;mf&quot;&gt;2.&lt;/span&gt;  &lt;span class=&quot;mf&quot;&gt;3.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now this, is why Python is awesome.&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 30 Mar 2016 22:26:00 +0700</pubDate>
+        <link>http://benjdewantara.github.io/2016-03-30-matrix-algebra-with-scipy</link>
+        <guid isPermaLink="true">http://benjdewantara.github.io/2016-03-30-matrix-algebra-with-scipy</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Reservoir Engineering: Derivation of The Diffusivity Equation (part 2)</title>
+        <description>&lt;p&gt;We have derived the general form of continuity equation for fluid flow in porous media in the &lt;a href=&quot;/2016-02-04-review-res-eng-derivation-of-diffusivity-equation-pt-1&quot;&gt;previous post&lt;/a&gt;.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{\partial{ \left( \rho\phi \right) }}{\partial{t}} = \frac{-1}{r} \frac{\partial}{\partial r}(r \rho u_{r})&lt;/script&gt;
+
+&lt;p&gt;Consider Darcy’s Law,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;u_s = -\frac{k}{\mu} \left( \frac{\partial P}{\partial s} - \rho g \frac{\partial z}{\partial s} \right)&lt;/script&gt;
+
+&lt;p&gt;Keep in mind that Darcy’s Law only applies to laminar (or Darcy) flow.&lt;/p&gt;
+
+&lt;p&gt;Translating that form in &lt;script type=&quot;math/tex&quot;&gt;r&lt;/script&gt; direction gives,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;u_r = \frac{k}{\mu} \left( \frac{\partial P}{\partial r} \right)&lt;/script&gt;
+
+&lt;p&gt;Introduce Darcy’s equation into continuity equation,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{\partial{ \left( \rho\phi \right) }}{\partial{t}} = \frac{-1}{r} \frac{\partial}{\partial r}\left( r \rho \frac{k}{\mu} \frac{\partial P}{\partial r} \right)&lt;/script&gt;
+
+&lt;p&gt;This form is by far the most general form of diffusivity equation before we introduce further assumptions into our derivation. Until now, we have made the following assumptions:
+* Flow only happens in &lt;script type=&quot;math/tex&quot;&gt;r&lt;/script&gt; direction
+* Laminar (or Darcy) flow&lt;/p&gt;
+
+&lt;p&gt;From this point on, we’re gonna introduce more assumptions in order to further derive this equation. Notice on the right-hand side of the equation, we have variables &lt;script type=&quot;math/tex&quot;&gt;\rho&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;\mu&lt;/script&gt; that are obviously &lt;script type=&quot;math/tex&quot;&gt;f(P)&lt;/script&gt; (a function of pressure). Pressure itself is &lt;script type=&quot;math/tex&quot;&gt;f(r)&lt;/script&gt; (a function of space, which again in this case only happens in &lt;script type=&quot;math/tex&quot;&gt;r&lt;/script&gt;). The&lt;/p&gt;
+
+&lt;h1 id=&quot;flow-of-single-phase-liquid-small-constant-compressibility&quot;&gt;Flow of single-phase liquid (small, constant compressibility)&lt;/h1&gt;
+
+&lt;p&gt;We need to assume that the porous medium (i.e. the rock) has constant permeability and fluid’s viscosity stays constant.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{\mu}{k} \frac{\partial(\rho\phi)}{\partial{t}} = \frac{-1}{r} \frac{\partial}{\partial r} \left( r \rho \frac{\partial P}{\partial r} \right)&lt;/script&gt;
+
+&lt;p&gt;Evaluate the left-hand side,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+
+\frac{\partial (\rho\phi)}{\partial t} &amp;= \frac{\partial (\rho\phi)}{\partial P} \frac{\partial P}{\partial t} \\
+&amp;= \left( \rho \frac{\partial (\phi)}{\partial P} + \phi \frac{\partial (\rho)}{\partial P} \right) \frac{\partial P}{\partial t}
+
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;Recall the definition of compressibility of both fluid and rock (yes, &lt;a href=&quot;https://petrowiki.org/Compaction_drive_reservoirs&quot;&gt;rock can be compressible&lt;/a&gt;!),&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+
+c_f &amp;= \frac{1}{\rho} \frac{d\rho}{dP} &amp;
+c_r &amp;= \frac{1}{\phi} \frac{d\phi}{dP}\\
+\rho c_f &amp;= \frac{d\rho}{dP} &amp;
+\phi c_r &amp;= \frac{d\phi}{dP}
+
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;Substituting the compressibility expression into the left-hand,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+
+\frac{\partial (\rho\phi)}{\partial t} &amp;= \left( \rho \phi c_r + \phi \rho c_f \right) \frac{\partial P}{\partial t} \\
+&amp;= \rho\phi (c_r + c_f) \frac{\partial P}{\partial t} \\
+&amp;= \rho\phi c_T \frac{\partial P}{\partial t}
+
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;where &lt;script type=&quot;math/tex&quot;&gt;c_T&lt;/script&gt; denotes the total compressibility (&lt;script type=&quot;math/tex&quot;&gt;c_T = (c_r + c_f)&lt;/script&gt;).&lt;/p&gt;
+
+&lt;p&gt;Substituting this left-hand expression back into the derivation,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{\mu\rho\phi c_T}{k} \frac{\partial P}{\partial t} = \frac{-1}{r} \frac{\partial}{\partial r} \left( r \rho \frac{\partial P}{\partial r} \right)&lt;/script&gt;
+
+&lt;p&gt;Evaluate the right-hand side,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+
+\frac{\mu\rho\phi c_T}{k} \frac{\partial P}{\partial t} &amp;= \frac{-1}{r} \left[ \frac{\partial r}{\partial r} \rho \frac{\partial P}{\partial r} + r \frac{\partial \rho}{\partial P} \left( \frac{\partial P}{\partial r} \right)^{2} + r\rho \frac{\partial^2 P}{\partial r^2} \right] \\
+
+&amp;= \frac{-1}{r} \left[ \frac{\partial r}{\partial r} \rho \frac{\partial P}{\partial r} + r c_f \rho \left( \frac{\partial P}{\partial r} \right)^{2} + r\rho \frac{\partial^2 P}{\partial r^2} \right] \\
+
+&amp;= \frac{-\rho}{r} \left[ \frac{\partial r}{\partial r} \frac{\partial P}{\partial r} + r c_f  \left( \frac{\partial P}{\partial r} \right)^{2} + r \frac{\partial^2 P}{\partial r^2} \right] \\
+
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;We also assume that fluid has small, constant compressibility. Furthermore, pressure-gradient-squared times compressibility, &lt;script type=&quot;math/tex&quot;&gt;c_f \left( \frac{\partial P}{\partial r} \right)^{2}&lt;/script&gt;, can be neglected.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+
+\frac{\mu\phi c_T}{k} \frac{\partial P}{\partial t} &amp;= \frac{-1}{r} \left[ \frac{\partial r}{\partial r} \frac{\partial P}{\partial r} + r \frac{\partial^2 P}{\partial r^2} \right] \\
+
+\frac{\mu\phi c_T}{k} \frac{\partial P}{\partial t} &amp;= \frac{-1}{r} \frac{\partial}{\partial r} \left( r \frac{\partial P}{\partial r} \right) \\
+
+
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;h1 id=&quot;flow-of-gas&quot;&gt;Flow of gas&lt;/h1&gt;
+
+</description>
+        <pubDate>Tue, 16 Feb 2016 19:21:00 +0700</pubDate>
+        <link>http://benjdewantara.github.io/2016-02-16-review-res-eng-derivation-of-diffusivity-equation-pt-2</link>
+        <guid isPermaLink="true">http://benjdewantara.github.io/2016-02-16-review-res-eng-derivation-of-diffusivity-equation-pt-2</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Reservoir Engineering: Derivation of The Diffusivity Equation (part 1)</title>
+        <description>&lt;p&gt;&lt;a href=&quot;http://petrowiki.org/Reservoir_inflow_performance&quot;&gt;Diffusivity equation for fluid flow in porous media&lt;/a&gt; is essentially a product of the notion of &lt;a href=&quot;https://en.wikipedia.org/wiki/Continuity_equation#Fluid_dynamics&quot;&gt;Conservation of Mass&lt;/a&gt; that’s been derived thoroughly with &lt;a href=&quot;https://en.wikipedia.org/wiki/Darcy%27s_law#Darcy.27s_Law_in_Petroleum_Engineering&quot;&gt;Darcy’s law&lt;/a&gt; being further applied somewhere along the derivation. I present a brief review on the derivation in this post.&lt;/p&gt;
+
+&lt;p&gt;Since the flow of fluid in a &lt;em&gt;porous medium&lt;/em&gt; (i.e. a &lt;em&gt;reservoir&lt;/em&gt;) mostly follow a radial flow, we will put our mathematical abstraction using a &lt;a href=&quot;https://en.wikipedia.org/wiki/Cylindrical_coordinate_system&quot;&gt;cylindrical coordinate system&lt;/a&gt; &lt;script type=&quot;math/tex&quot;&gt;(r, \theta, z)&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;We would like to observe the mass in a fixed point in &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;space&lt;/code&gt;&lt;/strong&gt;, say at &lt;script type=&quot;math/tex&quot;&gt;r=r_a&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;\theta=\theta_a&lt;/script&gt;, and &lt;script type=&quot;math/tex&quot;&gt;z=z_a&lt;/script&gt; or at &lt;script type=&quot;math/tex&quot;&gt;(r_a, \theta_a, z_a)&lt;/script&gt;. Consider the following image (taken from &lt;em&gt;Wikipedia&lt;/em&gt;),&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://benjdewantara.github.io/assets/Cylindrical_coordinate_surfaces.gif&quot; alt=&quot;Cylindrical coordinate surfaces&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A point in a cylindrical space is the intersection of the three colored surfaces.&lt;/p&gt;
+
+&lt;p&gt;Now, consider its &lt;a href=&quot;https://en.wikipedia.org/wiki/Control_volume&quot;&gt;control volume&lt;/a&gt; whose volume is &lt;script type=&quot;math/tex&quot;&gt;V_b = r_a \Delta{r_a} \Delta{\theta_a} \Delta{z_a}&lt;/script&gt;. This control volume contains the point &lt;script type=&quot;math/tex&quot;&gt;(r_a, \theta_a, z_a)&lt;/script&gt; (i.e. &lt;script type=&quot;math/tex&quot;&gt;r_{a}&lt;/script&gt; lies between &lt;script type=&quot;math/tex&quot;&gt;r_{a} - \frac{\Delta{r_a}}{2}&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;r_{a} + \frac{\Delta{r_a}}{2}&lt;/script&gt;, and the same also applies to both &lt;script type=&quot;math/tex&quot;&gt;\theta_a&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;z_a&lt;/script&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mass&lt;/code&gt;&lt;/strong&gt; residing at that fixed point &lt;script type=&quot;math/tex&quot;&gt;a&lt;/script&gt; in &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;space&lt;/code&gt;&lt;/strong&gt; &lt;strong&gt;&lt;em&gt;changes with respect to&lt;/em&gt;&lt;/strong&gt; &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;time&lt;/code&gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{\Delta{m_{cv}}}{\Delta{t}} = \frac{\Delta{m_{(r_a, \theta_a, z_a)}}}{\Delta{t}}&lt;/script&gt;
+
+&lt;p&gt;What causes that change? Notice that &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mass&lt;/code&gt;&lt;/strong&gt; &lt;strong&gt;&lt;em&gt;is forever conserved&lt;/em&gt;&lt;/strong&gt;, unless there is a stream of &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mass&lt;/code&gt;&lt;/strong&gt; entering or leaving that control volume. So let’s say, there is a stream of &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mass&lt;/code&gt;&lt;/strong&gt;entering and another stream leaving point &lt;script type=&quot;math/tex&quot;&gt;a&lt;/script&gt; in &lt;script type=&quot;math/tex&quot;&gt;r&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;\theta&lt;/script&gt;, and &lt;script type=&quot;math/tex&quot;&gt;z&lt;/script&gt; direction.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{\Delta{m_{cv}}}{\Delta{t}} = \dot{m}_{in} - \dot{m}_{out}&lt;/script&gt;
+
+&lt;p&gt;Let us first consider the &lt;script type=&quot;math/tex&quot;&gt;\dot{m}_{in} - \dot{m}_{out}&lt;/script&gt; that happens only &lt;em&gt;with respect to&lt;/em&gt; &lt;script type=&quot;math/tex&quot;&gt;r&lt;/script&gt;. Recall that &lt;script type=&quot;math/tex&quot;&gt;\dot{m} = \rho u A&lt;/script&gt;. So in &lt;script type=&quot;math/tex&quot;&gt;r&lt;/script&gt; direction,&lt;/p&gt;
+
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;(\rho u A)_{in}&lt;/script&gt; enters the control volume at &lt;script type=&quot;math/tex&quot;&gt;r_a - \frac{\Delta{r_a}}{2}&lt;/script&gt; &lt;br /&gt;
+while &lt;script type=&quot;math/tex&quot;&gt;(\rho u A)_{out}&lt;/script&gt; leaves the control volume at &lt;script type=&quot;math/tex&quot;&gt;r_a + \frac{\Delta{r_a}}{2}&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Therefore,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;(\rho u A)_{in} = (\rho u)_{r_a - \frac{\Delta{r_a}}{2}} \times  A_{r_a - \frac{\Delta{r_a}}{2}}&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;(\rho u A)_{in} = (\rho u)_{r_a - \frac{\Delta{r_a}}{2}} \times  (r_a - \frac{\Delta{r_a}}{2}) \Delta{\theta} \Delta{z}&lt;/script&gt;
+
+&lt;p&gt;Recall that backward, forward, and centered difference at one point must all agree with one another so as to satisfy the existence of the derivative  at that point.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\lim_{h\to0}\frac{f(x-h)-f(x)}{-h} = \lim_{h\to0}\frac{f(x)-f(x+h)}{-h} = \lim_{h\to0}\frac{f(x-h)-f(x+h)}{-2h} = \frac{df}{dx}&lt;/script&gt;
+
+&lt;p&gt;Thus, consider the following &lt;a href=&quot;https://en.wikipedia.org/wiki/Finite_difference&quot;&gt;backward-difference&lt;/a&gt; of &lt;script type=&quot;math/tex&quot;&gt;(\rho u)_{r_a}&lt;/script&gt; from &lt;script type=&quot;math/tex&quot;&gt;r_a - \frac{\Delta{r_a}}{2}&lt;/script&gt; to &lt;script type=&quot;math/tex&quot;&gt;r_a&lt;/script&gt;&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{(\rho u)_{r_a - \frac{\Delta{r_a}}{2}} - (\rho u)_{r_a}}{(r_a - \frac{\Delta{r_a}}{2}) - (r_a)} = \frac{\partial{(\rho u)}_{r_a}}{\partial{r_a}}&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;-2\frac{(\rho u)_{r_a - \frac{\Delta{r_a}}{2}} - (\rho u)_{r_a}}{\Delta{r_a}} = \frac{\partial{(\rho u)}_{r_a}}{\partial{r_a}}&lt;/script&gt;
+
+&lt;p&gt;Similarly, we can derive the &lt;a href=&quot;https://en.wikipedia.org/wiki/Finite_difference&quot;&gt;forward-difference&lt;/a&gt; expression in a similar manner. We can rearrange both forward and backward difference which invole &lt;script type=&quot;math/tex&quot;&gt;(\rho u)_{r_a}&lt;/script&gt; into,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;(\rho u)_{r_a - \frac{\Delta{r_a}}{2}} = (\rho u)_{r_a} - \frac{\partial(\rho u)_{r_a}}{\partial r_a} \frac{\Delta{r}}{2}&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;(\rho u)_{r_a + \frac{\Delta{r_a}}{2}} = (\rho u)_{r_a} + \frac{\partial(\rho u)_{r_a}}{\partial r_a} \frac{\Delta{r}}{2}&lt;/script&gt;
+
+&lt;p&gt;The &lt;script type=&quot;math/tex&quot;&gt;(\rho u A)_{in} - (\rho u A)_{out}&lt;/script&gt; expression then translates into,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;(\rho u A)_{in} - (\rho u A)_{out}&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\left( -(\rho u)_{r_a} \Delta{r_a} - r \Delta{r_a} \frac{\partial(\rho u)_{r_a}}{\partial r_a} \right) \Delta{\theta_a} \Delta{z_a}&lt;/script&gt;
+
+&lt;p&gt;Now, we evalute the left-hand expression of the conservation of mass equation earlier,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{\Delta{m_{cv}}}{\Delta{t}} = \frac{\Delta{ \left( \rho\phi V_b \right)_{cv} }}{\Delta{t}}&lt;/script&gt;
+
+&lt;p&gt;Substitute &lt;script type=&quot;math/tex&quot;&gt;V_b = r_a \Delta{r_a} \Delta{\theta_a} \Delta{z_a}&lt;/script&gt; into the equation,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{\Delta{ \left( \rho\phi r_a \Delta{r_a} \Delta{\theta_a} \Delta{z_a} \right)_{cv} }}{\Delta{t}} = \left( -(\rho u)_{r_a} \Delta{r_a} - r \Delta{r_a} \frac{\partial(\rho u)_{r_a}}{\partial r_a} \right) \Delta{\theta_a} \Delta{z_a}&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{\Delta{ \left( \rho\phi r_a \right)_{cv} }}{\Delta{t}} = \left( -(\rho u)_{r_a} - r \frac{\partial(\rho u)_{r_a}}{\partial r_a} \right)&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{\Delta{ \left( \rho\phi \right)_{cv} }}{\Delta{t}} = \frac{-1}{r_a}\left( (\rho u)_{r_a} \frac{\partial r}{\partial r} + r \frac{\partial(\rho u)_{r_a}}{\partial r_a} \right)&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{\Delta{ \left( \rho\phi \right)_{cv} }}{\Delta{t}} = \frac{-1}{r_a}\left( \frac{\partial}{\partial r_a}(r_a \rho u_{r_a}) \right)&lt;/script&gt;
+
+&lt;p&gt;Since we’ve been looking at point &lt;script type=&quot;math/tex&quot;&gt;a&lt;/script&gt;, we can further deduce that this form applies to any point in &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;space&lt;/code&gt;&lt;/strong&gt;. Also, as &lt;script type=&quot;math/tex&quot;&gt;\Delta{t} \to 0&lt;/script&gt;, we observe the derivative of &lt;script type=&quot;math/tex&quot;&gt;\left(\rho\phi\right)&lt;/script&gt;. The conservation of mass equation then becomes the continuity equation,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{\partial{ \left( \rho\phi \right) }}{\partial{t}} = \frac{-1}{r} \frac{\partial}{\partial r}(r \rho u_{r})&lt;/script&gt;
+
+&lt;p&gt;Note that, this continuity equation only accounts for flow happening only in &lt;script type=&quot;math/tex&quot;&gt;r&lt;/script&gt; direction (i.e. we’ve been assuming that no flow happens in &lt;script type=&quot;math/tex&quot;&gt;\theta&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;z&lt;/script&gt; direction).&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 04 Feb 2016 14:02:00 +0700</pubDate>
+        <link>http://benjdewantara.github.io/2016-02-04-review-res-eng-derivation-of-diffusivity-equation-pt-1</link>
+        <guid isPermaLink="true">http://benjdewantara.github.io/2016-02-04-review-res-eng-derivation-of-diffusivity-equation-pt-1</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>What Will be Bothering Me Throughout the First Semester of 2016</title>
+        <description>&lt;ol&gt;
+  &lt;li&gt;Bachelor thesis&lt;/li&gt;
+  &lt;li&gt;Three classes&lt;/li&gt;
+  &lt;li&gt;Introduction to Computer Science and Programming Using Python on &lt;a href=&quot;https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-6&quot;&gt;edX.org&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;One particular project my friend &lt;a href=&quot;https://twitter.com/purba_rafael&quot;&gt;Rafael&lt;/a&gt; and I are planning on&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Mon, 01 Feb 2016 23:14:00 +0700</pubDate>
+        <link>http://benjdewantara.github.io/2016-02-01-what-will-be-bothering-me-throughout-first-semester-of-2016</link>
+        <guid isPermaLink="true">http://benjdewantara.github.io/2016-02-01-what-will-be-bothering-me-throughout-first-semester-of-2016</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Why Jekyll Now?</title>
+        <description>&lt;p&gt;My aim when setting up this blog (perhaps also when setting up &lt;a href=&quot;http://benjdewantara.wordpress.com&quot;&gt;my first Wordpress blog ever&lt;/a&gt;) is just for the fun of hacking the CMS itself. I just have never been much of a writer who actually blogs myself. That pretty much will &lt;strong&gt;later&lt;/strong&gt; explain my future plan on migrating my Wordpress posts to &lt;a href=&quot;http://benjdewantara.github.io&quot;&gt;this Jekyll site&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;But why now? Well, since I decided to blog more seriously on Wordpress, I have been looking for &lt;a href=&quot;https://wordpress.org/themes/search/blog&quot;&gt;a Wordpress theme that actually is a blog&lt;/a&gt; (i.e. without unnecessary slider, footer, header, menu bar, widgets and other feature). I ended up with my current &lt;a href=&quot;https://boscodemo.wordpress.com&quot;&gt;Bosco theme&lt;/a&gt; that is of course &lt;em&gt;quite&lt;/em&gt; beautiful.&lt;/p&gt;
+
+&lt;p&gt;Nevertheless, these are a few key things why I now blog using Jekyll.&lt;/p&gt;
+
+&lt;h1 id=&quot;a-text-interface-calms-my-nerve&quot;&gt;A text interface calms my nerve&lt;/h1&gt;
+&lt;p&gt;I may stick a little bit longer with Wordpress, but I find myself more comfortable with a text interface rather than a visual interface when writing a post.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://benjdewantara.github.io/assets/2016-02-01-text-vs-visual-wordpress.jpg&quot; alt=&quot;Text vs Visual?&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I try to pay careful attention to details like how many &lt;code class=&quot;highlighter-rouge&quot;&gt;SPACE&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;ENTER&lt;/code&gt; characters I have used. Just like writing with Microsoft Word, I make sure that &lt;strong&gt;&lt;em&gt;show paragraph symbols&lt;/em&gt;&lt;/strong&gt; button is clicked.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://benjdewantara.github.io/assets/2016-02-01-when-writing-with-ms-word.jpg&quot; alt=&quot;When writing with Microsoft Word&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So I know for more sure that I won’t somehow leave one or two extra unused HTML tag(s) because of that creepy Visual interface.&lt;/p&gt;
+
+&lt;h1 id=&quot;latex--is-more-beautiful&quot;&gt;&lt;script type=&quot;math/tex&quot;&gt;\LaTeX&lt;/script&gt; is more beautiful&lt;/h1&gt;
+&lt;p&gt;This first came to my attention when reading &lt;a href=&quot;https://github.com/danieltakeshi&quot;&gt;Daniel Seita&lt;/a&gt;’s &lt;a href=&quot;https://danieltakeshi.github.io&quot;&gt;blog&lt;/a&gt;. And yes, compared to &lt;a href=&quot;https://en.support.wordpress.com/latex/&quot;&gt;Wordpress’ LaTeX&lt;/a&gt;, I have to admit it.&lt;/p&gt;
+
+&lt;h1 id=&quot;code-highlighting&quot;&gt;Code highlighting&lt;/h1&gt;
+&lt;p&gt;Now this,&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt; &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;This is awesome&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h1 id=&quot;im-thinking-of-posting-a-few-of-my-thesis-materials-here&quot;&gt;I’m thinking of posting a few of my thesis materials here&lt;/h1&gt;
+&lt;p&gt;This further explains why I need that beautiful &lt;script type=&quot;math/tex&quot;&gt;\LaTeX&lt;/script&gt; (and code highlighting feature).&lt;/p&gt;
+
+&lt;h1 id=&quot;ultimately-i-get-to-hack-my-way-through-all-this&quot;&gt;Ultimately, I get to hack my way through all this&lt;/h1&gt;
+&lt;p&gt;Blogging may never be my primary purpose when setting all these up. I also get to learn a little bit of Git/Github (and expect to learn more in the near future).&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 01 Feb 2016 21:36:00 +0700</pubDate>
+        <link>http://benjdewantara.github.io/2016-02-01-why-jekyll-now</link>
+        <guid isPermaLink="true">http://benjdewantara.github.io/2016-02-01-why-jekyll-now</guid>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
