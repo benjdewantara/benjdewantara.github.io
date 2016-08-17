@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Things I should Learn"
-date: 2016-08-05 03:00:00 +0700
+date: 2016-08-17 03:00:00 +0700
 comments: true
 permalink: 2016-08-17-things-i-should-learn
 disqus_identifier: d5bf46a8-5a84-11e6-ac4d-e8de279ede17
