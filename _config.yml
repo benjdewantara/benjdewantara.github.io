@@ -6,8 +6,7 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Some other blog of benjdewantara
-email: ben.manullang@students.itb.ac.id
+title: Blog of benjdewantara
 description: > # this means to ignore newlines until "baseurl:"
   An engineering student.
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -19,3 +18,9 @@ github_username:  benjdewantara
 markdown: kramdown
 highlighter: rouge
 #highlighter: pygment
+
+# Collections go here
+collections:
+  self_study_notes:
+    output: true
+    permalink: /self-study-notes/:name

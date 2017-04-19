@@ -10,7 +10,7 @@ excerpt_separator: <!--more-->
 
 ### Elementary school and I had no idea about my hard of hearing
 
-I still remember some time in my fourth grade when my mom told me that a teacher told her--presumably during a parent-teacher conference--that I usually didn't pay attention when the teacher asked something. I said I didn't know what that teacher was talking about. Weird. I didn't feel like I had intentionally ignore my teacher when they asked something. I think this is the earliest memory I can recall about my hard of hearing. Though at that time, I still didn't know for sure that I was hard of hearing.
+I still remember some time in my fourth grade when my mom told me that a teacher told her--presumably during a parent-teacher conference--that I usually didn't pay attention when the teacher asked something. I said I didn't know what that teacher was talking about. Weird. I didn't feel like I had ever intentionally ignore my teacher. I think this is the earliest memory I can recall about my hard of hearing. Though at that time, I still didn't know for sure that I was hard of hearing.
 
 <!--more-->
 
