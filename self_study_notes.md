@@ -5,7 +5,7 @@ permalink: /self-study-notes/
 isHiddenInHeader: true
 ---
 
-Below is a list of self-study notes from an online Probability course that I'm currently taking
+I'm thinking of putting a few study notes that should be grouped together. Below is a list of self-study notes from an online Probability course that I'm currently taking
 
 
 {% for note in site.self_study_notes %}
