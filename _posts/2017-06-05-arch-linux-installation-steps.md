@@ -34,7 +34,7 @@ The table of contents provided by [ArchWiki's installation guide][arch-wiki-inst
 5. [Post-installation](#post-installation)
 6. [My own summary](#my-own-summary)
 
-I thought I should expand and add more notes to it to suit my machine (and my future machines, amen to that).
+I thought I should expand and add more notes to it to suit my machine (and my future machines, amen to that). A learning experience like this can always be generalized to future learning experiences anyway.
 
 References:
 - [ArchWiki](https://wiki.archlinux.org/)
@@ -72,14 +72,14 @@ $ timedatectl set-ntp true
 
 Reading material: [ArchWiki's Partitioning page][archwiki-partitioning], [ArchWiki's GNU Parted article][archwiki-gnu-parted-article]
 
-Based on my knowledge thus far, I think BIOS or UEFI has to do with the motherboard (even a UEFI-able motherboard may have its UEFI settings turned off). While MBR or GPT has to do with how the disks is partitioned. At the time of writing this, I did a BIOS/GPT scenario. This explains why I will use:
+Based on my knowledge thus far, I think BIOS or UEFI has to do with the motherboard (also, a UEFI-able motherboard may have its UEFI settings turned off). Meanwhile, MBR or GPT has to do with how a disk is partitioned. At the time of writing this, I did a BIOS/GPT scenario. This explains why I will use:
 
 - `parted /dev/sda mklabel gpt`,
 - and `parted /dev/sda mkpart 1MB 3MB` then flag it with `bios_grub`
 
 Suppose we are given `/dev/sda` (this can be any `/dev/sdX`), and we use GNU's `parted`. We can use either `parted /dev/sda print` or `fdisk -l /dev/sda` to see its specification.
 
-This is to make the disk `/dev/sda` use the GPT partitioning scheme. *gpt* can be replaced with *msdos* if we want to use the MBR scheme instead.
+We make the disk `/dev/sda` use GPT partitioning scheme. *gpt* can be replaced with *msdos* if we want to use the MBR scheme instead (see `parted /dev/sda help mklabel`).
 
 ``` bash
 $ parted /dev/sda mklabel gpt
@@ -99,9 +99,9 @@ We would like `/dev/sda` to end up with this layout
 First, create the partitions--assuming `/dev/sda` is entirely clean,
 
 ``` bash
-$ parted /dev/sda mkpart primary 1MiB 3MiB
-$ parted /dev/sda mkpart primary ext4 3MiB 200MiB
-$ parted /dev/sda mkpart primary linux-swap 200MiB 4200MiB
+$ parted /dev/sda mkpart primary 1MiB 3MiB # this will end up as partition number 1
+$ parted /dev/sda mkpart primary ext4 3MiB 200MiB # this will end up as partition number 2
+$ parted /dev/sda mkpart primary linux-swap 200MiB 4200MiB # and so on
 $ parted /dev/sda mkpart primary ext4 4200MiB 100% # 100% indicates the end of the disk /dev/sda
 ```
 
@@ -141,7 +141,7 @@ $ mkfs.ext4 /dev/sda4
 
 #### Mount the file systems ####
 
-We have partition `/dev/sda2` acting as the `/boot` directory, and partition `/dev/sda4` acting as `/` directory. We mount both partitions as follows,
+We have partition `/dev/sda2` that will act as the `/boot` directory, and partition `/dev/sda4` that will act as `/` directory. We mount both partitions as follows,
 
 ``` bash
 $ mount /dev/sda4 /mnt # of all future `/anything` directory, we mount the `/` directory first as /mnt
@@ -161,7 +161,7 @@ Starting from this point, [`pacman`][] will be used, synchronize firstly,
 $ pacman -S -y
 ```
 
-[A YouTube tutorial video by linuxscoop](https://www.youtube.com/watch?v=3TB6KYsUyj4) demonstrates using [reflector]() (a Python script) to choose the fastest mirror. This may take some time because [`python`][] needs to be downloaded first, in the end, this could help a lot during the heavy `pacstrap`ing.
+[A YouTube tutorial video by linuxscoop](https://www.youtube.com/watch?v=3TB6KYsUyj4) demonstrates using [reflector]() (a Python script) to choose the fastest mirror. This may take some time because [`python`][] needs to be downloaded first. In the end, this could help a lot during the heavy `pacstrap`ing (unless we have a fast and stable internet connection).
 
 ``` bash
 $ pacman -S reflector
@@ -328,6 +328,8 @@ $ reboot
 # Post-installation #
 
 -------------------------------------------------------------------------------
+
+
 
 
 
