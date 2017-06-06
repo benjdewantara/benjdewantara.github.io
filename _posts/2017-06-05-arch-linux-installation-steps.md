@@ -200,10 +200,10 @@ Simply using `genfstab -U /mnt >> /mnt/etc/fstab` to generate the `fstab` file s
 $ blkid
 ```
 
-The output of `blkid` may be appended to `/etc/fstab` for the time being.
+The output of `blkid` may be appended to `/mnt/etc/fstab` for the time being.
 
 ``` bash
-$ blkid >> /etc/fstab
+$ blkid >> /mnt/etc/fstab
 ```
 
 `blkid` should generate something similar to this
@@ -367,8 +367,8 @@ reflector --verbose -i 5 --sort rate --save /etc/pacman.d/mirrorlist
 pacstrap /mnt base base-devel
 # [Configure the system] Fstab
 genfstab -U /mnt >> /mnt/etc/fstab
-blkid >> /etc/fstab
-#    proceed by editing /etc/fstab
+blkid >> /mnt/etc/fstab
+#    proceed by editing /mnt/etc/fstab
 # [Configure the system] Chroot
 arch-chroot /mnt
 # [Configure the system] Time zone
