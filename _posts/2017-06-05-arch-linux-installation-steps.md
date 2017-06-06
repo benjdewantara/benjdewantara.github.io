@@ -42,6 +42,8 @@ References:
 
 # Pre-installation #
 
+-------------------------------------------------------------------------------
+
 #### Set the keyboard layout ####
 
 Nothing to do here (yet?)
@@ -149,6 +151,8 @@ $ mount /dev/sda2 /mnt/boot
 
 # Installation #
 
+-------------------------------------------------------------------------------
+
 #### Select the mirrors ####
 
 Starting from this point, [`pacman`][] will be used, synchronize firstly,
@@ -183,6 +187,8 @@ $ pacstrap /mnt base base-devel
 [`base-devel`]: https://www.archlinux.org/groups/x86_64/base-devel/
 
 # Configure the system #
+
+-------------------------------------------------------------------------------
 
 #### Fstab ####
 
@@ -308,6 +314,8 @@ $ grub-mkconfig -o /boot/grub/grub.cfg
 
 # Reboot #
 
+-------------------------------------------------------------------------------
+
 Exit, unmount partitions, and reboot.
 
 ``` bash
@@ -319,9 +327,13 @@ $ reboot
 
 # Post-installation #
 
+-------------------------------------------------------------------------------
+
 
 
 # My own summary #
+
+-------------------------------------------------------------------------------
 
 ``` bash
 # [Pre-installation] Verify the boot mode
