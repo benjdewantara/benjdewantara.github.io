@@ -4,20 +4,26 @@ layout: default
 
 <div class="home">
 
-  <h1 class="page-heading">Posts</h1>
+  <table style="border-spacing: 10px;">
+    <thead>
+      <tr>
+	<th style="text-align: left;">Date</th>
+	<th style="text-align: left;">Title</th>
+      </tr>
+    </thead>
 
-  <ul class="post-list">
+    <tbody>
     {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-        {{ post.excerpt }}
-      </li>
+    <tr>
+      <td><span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span> </td>
+      <td><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></td>
+    </tr>
+
     {% endfor %}
-  </ul>
+    </tbody>
+
+  </table>
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
