@@ -21,6 +21,9 @@ highlighter: rouge
 
 # Collections go here
 collections:
+  posts:
+    output: true
+    permalink: ":name"
   self_study_notes:
     output: true
-    permalink: /self-study-notes/:name
+    permalink: /self-study-notes/:path
