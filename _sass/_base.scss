@@ -1,3 +1,9 @@
+$spc-unit: 30px;
+@debug 11px;
+@debug $spc-unit;
+@debug $base-font-weight;
+@debug $base-font-size;
+
 /**
  * Reset some basic elements
  */
@@ -34,8 +40,9 @@ h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
 ul, ol, dl, figure, table,
 %vertical-rhythm {
-    margin-top: calc($spacing-unit / 2);
-    margin-bottom: calc($spacing-unit / 2);
+    //margin-top: calc($spc-unit / 2);
+    margin-top: 20px; 
+    margin-bottom: calc($spc-unit / 2);
 }
 
 
@@ -66,7 +73,8 @@ figcaption {
  * Lists
  */
 ul, ol {
-    margin-left: calc($spacing-unit / 2);
+    //margin-left: calc($spc-unit / 2);
+    margin-left: $spc-unit; 
 }
 
 li {
@@ -81,11 +89,6 @@ li {
 /**
  * Headings
  */
-h1, h2, h3, h4, h5, h6 {
-    font-weight: $base-font-weight;
-}
-
-
 
 /**
  * Links
@@ -112,7 +115,7 @@ a {
 blockquote {
     color: $grey-color;
     border-left: 4px solid $grey-color-light;
-    padding-left: calc($spacing-unit / 2);
+    padding-left: calc($spc-unit / 2);
     font-size: 18px;
     letter-spacing: -1px;
     font-style: italic;
@@ -156,19 +159,19 @@ pre {
  * Wrapper
  */
 .wrapper {
-    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
-    max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
+    max-width: -webkit-calc(#{$content-width} - (#{$spc-unit} * 2));
+    max-width:         calc(#{$content-width} - (#{$spc-unit} * 2));
     margin-right: auto;
     margin-left: auto;
-    padding-right: $spacing-unit;
-    padding-left: $spacing-unit;
+    padding-right: $spc-unit;
+    padding-left: $spc-unit;
     @extend %clearfix;
 
     @include media-query($on-laptop) {
-        max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
-        max-width:         calc(#{$content-width} - (#{$spacing-unit}));
-        padding-right: calc($spacing-unit / 2);
-        padding-left: calc($spacing-unit / 2);
+        max-width: -webkit-calc(#{$content-width} - (#{$spc-unit}));
+        max-width:         calc(#{$content-width} - (#{$spc-unit}));
+        padding-right: calc($spc-unit / 2);
+        padding-left: calc($spc-unit / 2);
     }
 }
 
