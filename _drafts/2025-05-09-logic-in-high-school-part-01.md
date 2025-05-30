@@ -25,11 +25,11 @@ The emphasis was on how to perform the following binary operations
 on a truth table containing true and false values. 
 There had not been a topic on **statement** (nor **open sentence**).  
 
-1. AND operation ($$\wedge$$)
-1. OR operation ($$\lor$$)
-1. NO operation ($$\neg$$) 
-1. [IMPLY operation](https://en.wikipedia.org/wiki/Material_conditional) ($$\to$$) 
-1. [EQUIVALENCE operation](https://en.wikipedia.org/wiki/If_and_only_if) ($$\leftrightarrow$$) 
+1. AND operation ($\wedge$)
+1. OR operation ($\lor$)
+1. NO operation ($\neg$) 
+1. [IMPLY operation](https://en.wikipedia.org/wiki/Material_conditional) ($\to$) 
+1. [EQUIVALENCE operation](https://en.wikipedia.org/wiki/If_and_only_if) ($\leftrightarrow$) 
 
 It would have been more helpful if, 
 in conjunction with **IMPLY** and **EQUIVALENCE** operation, 
@@ -38,71 +38,72 @@ the notion of **statement**, and **open sentence** had been taught.
 ## AND, and OR operation in relation to quantified statement
 
 After learning of the quantified statement concept, 
-that is [**for all**](https://en.wikipedia.org/wiki/Universal_quantification) statement, 
+that is, [**for all**](https://en.wikipedia.org/wiki/Universal_quantification) statement, 
 and [**there exists**](https://en.wikipedia.org/wiki/Existential_quantification) statement, it becomes clear that they correspond to AND, and OR operation respectively
 
-### Similarity between AND operation ($$ \wedge $$) and universal quantification ($$ \forall $$)
+### Similarity between AND operation ($ \wedge $) and universal quantification ($ \forall $)
 * **AND operation** <u>will be TRUE when all things are TRUE</u>, 
 otherwise FALSE
 * A **universally-quantified** statement <u>will hold (be TRUE)</u> 
 when all statements within are TRUE, otherwise FALSE
 
 We may, for example, be interested in the following four statements 
-* $$P(8, 4)$$ as a statement saying $$8$$ is a multiple of $$4$$ 
-* $$P(16, 4)$$ as a statement saying $$16$$ is a multiple of $$4$$ 
-* $$P(32, 4)$$ as a statement saying $$32$$ is a multiple of $$4$$ 
-* $$\color{red}{P(33, 4)} $$ as a statement saying $$33$$ is a multiple of $$4$$ 
+* $P(8, 4)$ as a statement saying $8$ is a multiple of $4$ 
+* $P(16, 4)$ as a statement saying $16$ is a multiple of $4$ 
+* $P(32, 4)$ as a statement saying $32$ is a multiple of $4$ 
+* $\textcolor{red}{P(33, 4)} $ as a statement saying $33$ is a multiple of $4$ 
 
-Of course the last statement, $$ \color{red}{P(33, 4)} $$, is FALSE. 
+Of course the last statement, $ \textcolor{red}{P(33, 4)} $, is FALSE. 
 
 We are then interested in capturing them all in one expression
 (i.e. not a complete statement yet). 
-It would be easier to define a new set $$ P_4 $$ for this purpose. 
+It would be helpful to define a new set $ P_4 $ for this purpose. 
 
-Let $$ P_4 $$ be the set of certain multiples of $$ 4 $$. 
+Let $ P_4 $ be the set of certain multiples of $ 4 $. 
 
-Notice that we say *certain multiples* of $$ 4 $$, 
-because we are not interested in *all multiples* of $$ 4 $$ 
+Notice that we say *certain multiples* of $ 4 $, 
+because we are not interested in *all multiples* of $ 4 $ 
 in this brief discussion. 
 
 We can then rearrange the earlier four statements as follows
-* $$ 8 $$ is a member of set $$ P_4 $$
-* $$ 16 $$ is a member of set $$ P_4 $$
-* $$ 32 $$ is a member of set $$ P_4 $$
-* $$ 33 $$ is a member of set $$ P_4 $$ (again this should obviously be FALSE)
+* $ 8 $ is a member of set $ P_4 $
+* $ 16 $ is a member of set $ P_4 $
+* $ 32 $ is a member of set $ P_4 $
+* $ 33 $ is a member of set $ P_4 $ (again this should obviously be FALSE)
 
 or in symbolic form
-* $$ 8 \in P_4 $$ &nbsp;
-* $$ 16 \in P_4 $$ &nbsp;
-* $$ 32 \in P_4 $$ &nbsp;
-* $$ \color{red}{33 \in P_4} $$ &nbsp; (again this is clearly FALSE)
+* $ 8 \in P_4 $ &nbsp;
+* $ 16 \in P_4 $ &nbsp;
+* $ 32 \in P_4 $ &nbsp;
+* $ \textcolor{red}{33 \in P_4} $ &nbsp; (again this is clearly FALSE)
 
-Now if we line up these four individual statements using $$ \wedge $$ operator,
+Now if we line up these four individual statements using $ \wedge $ operator,
 we get the following
 
-$$ (8 \in P_4) \wedge (16 \in P_4) \wedge (32 \in P_4) \wedge (\color{red}{33 \in P_4}) $$ 
+$ (8 \in P_4) \wedge (16 \in P_4) \wedge (32 \in P_4) \wedge (\textcolor{red}{33 \in P_4}) $ 
 
 Obviously the presence of the last expression
-makes the entire expression evaluates to FALSE.
-It should have been $$ 33 \not\in P_4 $$ instead. 
-This is what makes the **AND operation** useful and easy to reason with, 
+makes the entire expression evaluate to FALSE.
+It should have been $ 33 \not\in P_4 $ instead. 
+This is what makes the **AND operation** interesting, 
 it will only be TRUE when everything
-is TRUE. Once it has FALSE statement within it,
+is TRUE. Once it has one FALSE statement within,
+like just even once, 
 the entire expression becomes FALSE.
 
 So the only way for the AND-chained expression earlier to be TRUE
 is only the following 
 
-$$ (8 \in P_4) \wedge (16 \in P_4) \wedge (32 \in P_4) $$ 
+$ (8 \in P_4) \wedge (16 \in P_4) \wedge (32 \in P_4) $ 
 
 We now direct our attention to universally-quantified statement,
-the one where we use symbol $$ \forall $$.  
+the one where we use symbol $ \forall $.  
 
 For that, we first need to create an *ancillary set* of four elements
 that we have been dealing with in this discussion so far, 
-$$ \{8, 16, 32, 33\} $$, 
+$ \{8, 16, 32, 33\} $, 
 and we want to be able to say a higher-level conclusion 
-about this ancillary set in relation with the set $$ P_4 $$ 
+about this ancillary set in relation to the set $ P_4 $ 
 
 In natural language, we want to be able to say, 
 
@@ -112,34 +113,37 @@ In symbolic form,
 we would like the universally-quantified statement candidate
 that may look like the following. Though the following is FALSE 
 
-| $$ \forall x \in \{8, 16, 32, \color{red}{33} \}, x \in P_4 $$ | 
+| $ \forall x \in \\{8, 16, 32, \textcolor{red}{33} \\}, x \in P_4 $ | 
 
-That $$ \forall $$ statement **does not hold**, 
-because $$ 33 $$ is in the ancillary set. We only want the set
-to contain multiples of $$ 4 $$ only, but $$ 33 $$ 
-is not a multiple of $$ 4 $$.
+That $ \forall $ statement **does not hold**, 
+because $ 33 $ is in the ancillary set. We only want the set
+to contain multiples of $ 4 $ only, but $ 33 $ 
+is not a multiple of $ 4 $.
 
 The universally-quantified statement that holds, in symbolic form, would be
 
-| $$ \forall x \in \{8, 16, 32\}, x \in P_4 $$ |  
+| $ \forall x \in \{8, 16, 32\}, x \in P_4 $ |  
 
-We just have to take $$ 33 $$ out of the ancillary set, 
-leaving $$ \{8, 16, 32\} $$.  
+We just have to take $ 33 $ out of the ancillary set, 
+leaving $ \{8, 16, 32\} $.  
 
 As an aside, symbolic form is a useful way 
 to create a statement in Mathematics.
+It is a new language that helps fellow Math users 
+regardless of whatever natural language 
+that one originally learned in their childhood. 
 It can give so much information symbolically. 
-Other mathematically-inclined people who see 
+Other Math users who see 
 a statement in symbolic form,
 may proceed to prove that the statement holds. 
 Or disprove it by showing it does not hold. 
 If a statement already holds,
-depending on how useful or interesting the statement is, 
+depending on how useful/interesting the statement is, 
 it can be considered a theorem. 
 More people are welcome to derive more statements 
 using the theorem.  
 
-### Similarity between OR operation ($$ \lor $$) and existential quantification ($$ \exists $$) 
+### Similarity between OR operation ($ \lor $) and existential quantification ($ \exists $) 
 * **OR operation** <u>will remain TRUE</u> 
 in the presence of at least one thing being TRUE. 
 * An **existentially-quantified** statement <u>will hold (remains TRUE)</u>
@@ -152,7 +156,7 @@ Another way to put it
 * An **existentially-quantified** statement will not hold (be FALSE) if 
 everything within does not hold (every inner statement is FALSE) 
 
-This is somewhat what makes so much sense when I think about it. 
+This somewhat makes sense when I think about it. 
 The whole point of **AND statement** (and the **universally-quantified** statement) 
 is to recognize the idea that
 there is only <u>one way to obtain TRUE value</u>. 
@@ -178,17 +182,23 @@ we now would like to say the following in natural language
 
 The existantially-quantified statement would be
 
-| $$ \exists x \in \{8, 16, 32, \color{red}{33}\}, x \in P_4 $$ |
+| $ \exists x \in \{8, 16, 32, \textcolor{red}{33}\}, x \in P_4 $ |
 
-Indeed, we do not have to take $$ \color{red}{33} $$ 
-out of the ancillary set, because the presence of $$ 8 $$ alone
+Indeed, we do not have to take $ \textcolor{red}{33} $ 
+out of the ancillary set, because the presence of $ 8 $ alone
 is already enough to make the entire existentially-quantified statement
 to hold.  
 
-We can even throw a multiple of seven, $$ 14 $$, into the 
+We can even throw a multiple of seven, $ 14 $, into the 
 ancillary set, and this existentially-quantified statement
 will still hold 
 
-| $$ \exists x \in \{8, 16, 32, \color{red}{33}, \color{red}{14}\}, x \in P_4 $$ |
+| $ \exists x \in \{8, 16, 32, \textcolor{red}{33}, \textcolor{red}{14}\}, x \in P_4 $ |
 
+## Concluding remarks
+
+We have just seen how 
+the **AND** and **OR** operations 
+are similar to their counterpart quantified statements: 
+**for all** statement, and **there exists** statement 
 
