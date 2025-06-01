@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Logic in High School - Part 1"
+title: "Logic in High School - AND and OR operations"
 date: 2025-05-10 14:00:00 +0700
 comments: true
 permalink: 2025-05-09-logic-in-high-school-part-01
