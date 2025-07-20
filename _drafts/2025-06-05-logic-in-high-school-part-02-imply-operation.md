@@ -67,6 +67,7 @@ Suppose we have a coffee shop.
 And one day, we are given the following 
 
 | Business requirement #1 |
+| --- |
 | If a customer pays using VISA card, 
   then they are given a free drink |
 
