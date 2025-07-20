@@ -68,7 +68,6 @@ And one day, we are given the following
 
 | Business requirement #1 |
 | --- |
-| If a customer pays using VISA card,
-then they are given a free drink |
+| If a customer pays using VISA card, then they are given a free drink |
 
 
