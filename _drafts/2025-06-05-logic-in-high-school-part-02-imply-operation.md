@@ -54,4 +54,20 @@ if I had just been aware of how the operation had worked.
 
 [Richard Hammacks's Book of Proof](https://richardhammack.github.io/BookOfProof/)
 
+## IMPLY operation in business requirement gathering
+
+Much of my work involve 
+understanding requirements (and constraints) 
+gathered from many parties. 
+In this discussion, 
+a constraint can be loosely 
+considered as a requirement. 
+
+Suppose we have a coffee shop. 
+And one day, we are given the following 
+
+| Business requirement #1 |
+| If a customer pays using VISA card, 
+  then they are given a free drink |
+
 
